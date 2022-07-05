@@ -17,7 +17,7 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" id='root' tabindex="0">
+            <div v-on:mouseover="stopAutoPlay" v-on:mouseout="autoPlay" class="slider-wrapper" id='root' tabindex="0">
 
                 <div class="item">
                     <img :src="slides[active].image" :alt="slides[active].title"/>

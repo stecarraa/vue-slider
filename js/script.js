@@ -4,6 +4,7 @@ const app = new Vue(
 
     data:  {
         active:0,
+        clock:null,
         slides : [
             {
                 image: 'img/01.jpg',
@@ -33,6 +34,11 @@ const app = new Vue(
         ]
 
     },
+
+    created(){
+        this.autoPlay();
+    },
+   
    
    methods:{
 
@@ -53,8 +59,19 @@ const app = new Vue(
 
         setImage: function(valore){
             this.active=valore;
-        }
+        },
+
+        autoPlay:function(){
+            this.clock=setInterval(()=>{
+                this.nextButton();
+            },3000);
+        },
+        stopAutoPlay: function() {
+            clearTimeout(this.clock);
+            this.clock = null;
+        },
 
     }
 }
 );
+
