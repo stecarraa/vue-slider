@@ -3,7 +3,7 @@ const app = new Vue(
     el: '#root',
 
     data:  {
-        index:0,
+        active:0,
         slides : [
             {
                 image: 'img/01.jpg',
@@ -37,18 +37,22 @@ const app = new Vue(
    methods:{
 
         nextButton: function(){
-            this.index++;
-            if(this.index === this.slides.length){
-                this.index = 0
+            this.active++;
+            if(this.active === this.slides.length){
+                this.active = 0
 
             }
         },
         prevButton: function(){
-            this.index = this.index - 1;
-            if(this.index === -1){
-                this.index = this.slides.length - 1
+            this.active = this.active - 1;
+            if(this.active === -1){
+                this.active = this.slides.length - 1
 
             }
+        },
+
+        setImage: function(valore){
+            this.active=valore;
         }
 
     }
